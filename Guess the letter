@@ -1,0 +1,47 @@
+import random
+import sys
+
+print ("I'm thinking of a letter... that letter is one of the following... a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p... you have 5 tries... good luck!")
+choice = input("are you ready? (y or n):")
+
+
+if choice == 'n':
+	sys.exit(0)			
+
+if choice == 'y':
+	print ("alright let's get started")
+
+word_list = ('abcdefghijklmnop')
+secret_code = "cheatxl"
+secret_word = random.choice (word_list)
+guess =' '
+guess_count = 0
+guess_limit = 5
+out_of_guess = False
+guess_amount = (0)
+
+
+
+while guess != secret_word and not out_of_guess:
+	if guess_count<guess_limit:
+		guess = input("enter your guess:")
+		guess_count = guess_count + 1
+		guess_amount = guess_amount + 1
+	else:
+			out_of_guess = True
+			
+	if guess == secret_word:
+					print ("how many times you guessed:", guess_amount)
+					
+	if guess  == secret_code:
+		print ("you guessed the secret code and automatically win", sys.exit())			
+	
+	
+	if guess != secret_word or secret_code:
+			print ("wrong...") 
+
+		
+if out_of_guess and guess != secret_word:
+	print ("you lose! secret letter was:", secret_word) 
+else:
+		print ("nice job you win!")
